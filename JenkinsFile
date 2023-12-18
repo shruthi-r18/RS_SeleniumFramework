@@ -1,0 +1,34 @@
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "M2_Home"
+    }
+
+    stages {
+         stage('Setup') {
+             steps {
+                   git 'https://github.com/shruthi-r18/RS_SeleniumFramework.git'
+             }
+         }
+        stage('Build') {
+            steps {
+                sh "mvn clean package -DskipTests=true"
+                
+            }
+        }
+        stage('Run Tests') {
+            steps {
+                sh "mvn -P LoginTesting test"
+                
+            }
+			post {
+    always {
+      testNG()
+    }
+  }
+    }
+     
+    }
+}
