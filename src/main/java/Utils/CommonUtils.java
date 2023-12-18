@@ -16,6 +16,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import ConstantsUtils.WaitConstants;
 
+//Git Test
+
 public class CommonUtils {
 	public static String captureScreenShot(String testName, WebDriver driver) throws IOException {
 		TakesScreenshot sc = (TakesScreenshot) driver;
