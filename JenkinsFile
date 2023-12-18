@@ -16,13 +16,13 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh "mvn clean package -DskipTests=true"
+                bat "mvn clean package -DskipTests=true"
                 
             }
         }
         stage('Run Tests') {
             steps {
-                sh "mvn -P LoginTesting test"
+                bat "mvn -P LoginTesting test"
                 
             }
 			post {
